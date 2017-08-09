@@ -1,0 +1,5 @@
+package enums;
+
+public enum COLOR {
+	BLACK, CHOC, CINNA, AMBER, ORANGE, BLUE, LILAC, FAWN, LAMB, CREAM, CARAM, APRI,
+}
