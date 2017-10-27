@@ -81,6 +81,7 @@ public class ImportView extends JPanel {
 	public JCheckBox bunnyBox = new JCheckBox("Bunny");
 	public JCheckBox lionBox = new JCheckBox("Lion");
 	public JCheckBox chimBox = new JCheckBox("Chimaeric Tortoiseshell");
+	public JCheckBox fangBox = new JCheckBox("Fangs");
 	public JButton importButton = new JButton("Import");
 	// if bTabby && bCharcoalCheck, charcoalBox is enabled
 	private boolean bTabby = true;
@@ -322,6 +323,8 @@ public class ImportView extends JPanel {
 		this.add(bunnyBox, c);
 		c.gridy = 1;
 		this.add(lionBox, c);
+		c.gridy = 3;
+		this.add(fangBox, c);
 		c.gridy = 2;
 		c.gridwidth = 2;
 		this.add(chimBox, c);

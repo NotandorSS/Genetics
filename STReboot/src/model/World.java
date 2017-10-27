@@ -35,19 +35,13 @@ public class World implements Serializable {
 	}
 	
 	public void breedCat(Cat dam, Cat sire, int min, int max) {
-		System.out.println("Breeding");
 		int size = 1;
 		if (max - min > 0) {
-			System.out.println("max-min > 0");
 			size = findSize(min, max);
 		} else if (max == min) {
-			System.out.println("size = max");
-			System.out.println("max: " + max);
 			size = max;
 		}
-		System.out.println("Size: " + size);
 		for (int j = 0; j < size; j++) {
-			System.out.println("Kit: " + j);
 			Cat kitten = new Cat();
 			for (int i = 0; i < LOCI.values().length; i++) {
 				kitten.genotype[0][i] = rand.nextBoolean() ? dam.genotype[0][i] : dam.genotype[1][i];

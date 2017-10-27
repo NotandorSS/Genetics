@@ -1,7 +1,7 @@
 package enums;
 
 public enum MUTATION {
-	BUNNY(50, 2, "Bunny"), LION(50, 2, "Lion"), CHIM(100, 5, "Chim");
+	BUNNY(50, 2, "Bunny"), LION(50, 2, "Lion"), CHIM(100, 5, "Chim"), FANG(10000, 3, "Fangs");
 	
 	public final int spontaneous;
 	public final int half;

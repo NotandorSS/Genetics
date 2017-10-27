@@ -118,6 +118,7 @@ public class Cat implements Serializable, Comparable<Cat> {
 	}
 
 	public void setBuild(BUILD b) {
+		randomBuild();
 		int[][] test = { { 0, getIndex(LOCI.BUILD) }, { 1, getIndex(LOCI.BUILD) }, { 0, getIndex(LOCI.BUILD2) },
 				{ 1, getIndex(LOCI.BUILD2) }, { 0, getIndex(LOCI.BUILD3) }, { 1, getIndex(LOCI.BUILD3) },
 				{ 0, getIndex(LOCI.BUILD4) }, { 1, getIndex(LOCI.BUILD4) } };
@@ -261,10 +262,10 @@ public class Cat implements Serializable, Comparable<Cat> {
 	}
 
 	public void setShading(ALLELE[] a) {
-		genotype[0][getIndex(LOCI.COLOR)] = a[0];
-		genotype[1][getIndex(LOCI.COLOR)] = a[1];
-		genotype[0][getIndex(LOCI.TANNING)] = a[2];
-		genotype[1][getIndex(LOCI.TANNING)] = a[3];
+		genotype[0][getIndex(LOCI.SHADED)] = a[0];
+		genotype[1][getIndex(LOCI.SHADED)] = a[1];
+		genotype[0][getIndex(LOCI.GOLDEN)] = a[2];
+		genotype[1][getIndex(LOCI.GOLDEN)] = a[3];
 
 	}
 
@@ -527,6 +528,7 @@ public class Cat implements Serializable, Comparable<Cat> {
 		Collections.shuffle(Arrays.asList(a));
 		genotype[0][getIndex(LOCI.TANNING)] = a[0];
 		genotype[1][getIndex(LOCI.TANNING)] = a[1];
+		genotype[rand.nextInt(2)][getIndex(LOCI.TANNING)] = ALLELE.b;
 		amberNo();
 	}
 
@@ -591,11 +593,17 @@ public class Cat implements Serializable, Comparable<Cat> {
 	} // sexPheno()
 
 	private String buildPheno() {
+		System.out.print("Cat: " + ID + "\n\t");
+		for (int i = 1; i < LOCI.BUILD.end; i++) {
+			System.out.print("" + genotype[0][i] + genotype[1][i] + " ");
+		}
+		System.out.println();
+		
 		int w = 0;
 		int c = 0;
 		int o = 0;
 		int s = 0;
-		for (int i = LOCI.BUILD.start; i < LOCI.BUILD.end; i++) {
+		for (int i = 0; i < genotype[0].length; i++) {
 			for (int j = 0; j < genotype.length; j++) {
 				try {
 					switch (genotype[j][i]) {
@@ -608,8 +616,10 @@ public class Cat implements Serializable, Comparable<Cat> {
 					case Co:
 						c++;
 						break;
-					default:
+					case Wi:
 						w++;
+						break;
+					default:
 					} // switch
 				} catch (java.lang.NullPointerException e) {
 					System.out.println("J is: " + j);
