@@ -124,6 +124,9 @@ public class ImportController implements ActionListener {
 		}
 		if (importView.chimBox.isSelected()) {
 			c.giveMutation(MUTATION.CHIM);
+		}
+		if (importView.fangBox.isSelected()) {
+			c.giveMutation(MUTATION.FANG);
 		} // if mutations
 		
 		world.addCat(c);

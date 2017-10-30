@@ -592,13 +592,7 @@ public class Cat implements Serializable, Comparable<Cat> {
 		} // switch
 	} // sexPheno()
 
-	private String buildPheno() {
-		System.out.print("Cat: " + ID + "\n\t");
-		for (int i = 1; i < LOCI.BUILD.end; i++) {
-			System.out.print("" + genotype[0][i] + genotype[1][i] + " ");
-		}
-		System.out.println();
-		
+	private String buildPheno() {		
 		int w = 0;
 		int c = 0;
 		int o = 0;
